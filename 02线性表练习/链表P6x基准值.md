@@ -34,7 +34,9 @@ public class Partition {
             }
             currentNode = currentNode.next;
         }
+        //smallHead的下一个结点指向big链表
         smallHead.next = big.next;
+        //bigHead的最后一个节点设置为尾结点
         bigHead.next = null;
         return small.next;
     }
