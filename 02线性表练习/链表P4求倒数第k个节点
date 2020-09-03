@@ -12,7 +12,13 @@ https://www.nowcoder.com/practice/529d3ae5a407492994ad2a246518148a?tpId=13&&tqId
 
 将链表结点全部添加至集合中，然后根据索引特性寻找倒数第k个结点（集合长度-k值）
 
-2.快慢指针法
+2.遍历法
+
+（1）第一次链表遍历，获得链表长度n；
+
+（2）从头结点向后走n-k步，获得倒数第k个结点；
+
+3.快慢指针法
 
 定义两个指针fast和slow
 
@@ -46,6 +52,28 @@ public class Solution {
 }
 ```
 
+遍历法
+
+```java
+public class Solution {
+    public ListNode FindKthToTail(ListNode head,int k) {
+        int n = 0;
+        Node p = head;
+        Node q = head;
+        //第一遍循环获得链表长度n
+        while (p != null){
+            n++;
+            p = p.next;
+        }
+        //第二遍循环返回倒数第k个结点
+        for(int i = 0;i < n-k;i++){
+            q = q.next;
+        }
+        return q;
+    }
+}
+```
+
 快慢指针法
 
 ```java
@@ -70,4 +98,3 @@ public class Solution {
     }
 }
 ```
-
